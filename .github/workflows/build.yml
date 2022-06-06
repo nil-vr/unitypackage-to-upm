@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Restore cache
+      uses: Swatinem/rust-cache@v1
+    - name: Build
+      run: cargo build --verbose --release
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: unitypackage-to-upm.exe
+        path: |
+          target/release/unitypackage-to-upm.exe
+          target/release/unitypackage_to_upm.pdb
