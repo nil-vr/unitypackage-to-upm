@@ -3,7 +3,7 @@ name = "unitypackage-to-upm"
 version = "0.1.0"
 edition = "2021"
 authors = ["nil"]
-description = "Convert unitypackage files to UPM zips"
+description = "Convert unitypackage files to upm so you can use the package manager."
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
